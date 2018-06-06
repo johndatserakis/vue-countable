@@ -61,7 +61,6 @@ const config = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       title: 'vue-countable',
-      // filename: path.join(__dirname, 'dist', 'index.html'),
       template: path.join(__dirname, 'example', 'index.html'),
       inject: true,
       minify: minify ? {

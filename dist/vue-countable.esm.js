@@ -12,6 +12,21 @@ var script = {
         id: {
             type: String,
             required: true
+        },
+        hardReturns: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        stripTags: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        ignore: {
+            type: Array,
+            required: false,
+            default: function () { return []; }
         }
     },
     data: function data () {
@@ -20,37 +35,50 @@ var script = {
         }
     },
     computed: {
+        options: function options () {
+            return {
+                hardReturns: this.hardReturns,
+                stripTags: this.stripTags,
+                ignore: this.ignore
+            }
+        }
     },
     watch: {
         text: {
             handler: function (value) {
-                var vm = this;
+                var this$1 = this;
+
                 var area = document.getElementById(this.id);
                 if (!area) {
                     return
                 }
 
-                countable.on(area, function (counter) {
-                    vm.$emit('change', counter);
+                this.$nextTick(function () {
+                    this$1.countable.count(area, function (counter) {
+                        this$1.$emit('change', counter);
+                    }, this$1.options);
                 });
             }
         }
     },
     methods: {
         // The init function is important because we want to provide counts not
-        // only during changes, but also on initialization. In init() we use
-        // countable.count instead of countable.on, as countable.count is for
-        // one time use.
+        // only during changes, but also on initialization.
         init: function init () {
+            var this$1 = this;
+
+            // Set our countable instance
             this.countable = countable;
-            var vm = this;
+
             var area = document.getElementById(this.id);
             if (!area) {
                 return
             }
 
-            countable.count(area, function (counter) {
-                vm.$emit('change', counter);
+            this.$nextTick(function () {
+                this$1.countable.count(area, function (counter) {
+                    this$1.$emit('change', counter);
+                }, this$1.options);
             });
         }
     },
@@ -79,11 +107,11 @@ var __vue_template__ = typeof __vue_render__ !== 'undefined'
 /* style */
 var __vue_inject_styles__ = function (inject) {
   if (!inject) { return }
-  inject("data-v-4e214722_0", { source: "\n.countable-div[data-v-4e214722] {\n  display: none;\n}\n\n/*# sourceMappingURL=vue-countable.vue.map */", map: undefined, media: undefined });
+  inject("data-v-4fdcdc5e_0", { source: "\n.countable-div[data-v-4fdcdc5e] {\n  display: none;\n}\n\n/*# sourceMappingURL=vue-countable.vue.map */", map: undefined, media: undefined });
 
 };
 /* scoped */
-var __vue_scope_id__ = "data-v-4e214722";
+var __vue_scope_id__ = "data-v-4fdcdc5e";
 /* module identifier */
 var __vue_module_identifier__ = undefined;
 /* functional template */

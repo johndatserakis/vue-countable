@@ -15,6 +15,21 @@ export default {
         id: {
             type: String,
             required: true
+        },
+        hardReturns: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        stripTags: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        ignore: {
+            type: Array,
+            required: false,
+            default: () => []
         }
     },
     data () {
@@ -23,37 +38,46 @@ export default {
         }
     },
     computed: {
+        options () {
+            return {
+                hardReturns: this.hardReturns,
+                stripTags: this.stripTags,
+                ignore: this.ignore
+            }
+        }
     },
     watch: {
         text: {
             handler: function (value) {
-                let vm = this
                 let area = document.getElementById(this.id)
                 if (!area) {
                     return
                 }
 
-                countable.on(area, function (counter) {
-                    vm.$emit('change', counter)
+                this.$nextTick(() => {
+                    this.countable.count(area, counter => {
+                        this.$emit('change', counter)
+                    }, this.options)
                 })
             }
         }
     },
     methods: {
         // The init function is important because we want to provide counts not
-        // only during changes, but also on initialization. In init() we use
-        // countable.count instead of countable.on, as countable.count is for
-        // one time use.
+        // only during changes, but also on initialization.
         init () {
+            // Set our countable instance
             this.countable = countable
-            let vm = this
+
             let area = document.getElementById(this.id)
             if (!area) {
                 return
             }
 
-            countable.count(area, function (counter) {
-                vm.$emit('change', counter)
+            this.$nextTick(() => {
+                this.countable.count(area, counter => {
+                    this.$emit('change', counter)
+                }, this.options)
             })
         }
     },

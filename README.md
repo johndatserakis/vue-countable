@@ -57,6 +57,9 @@ Now, anytime (and on component initialization) your `myText` variable changes, `
 |---------|-------|--------------------------------|
 | text | String | Text you want to track. |
 | id | String | A unique id for your tracking instance. This allows you to have multiple different counts on the same page.|
+| hardReturns | Boolean (Optional, defaults to false) | Require two returns to count paragraphs |
+| stripTags | Boolean (Optional, defaults to false) | Remove HTML before counting |
+| ignore | Array of Strings (Optional, defaults to empty) | Characters to be ignored. |
 
 ### Events
 
