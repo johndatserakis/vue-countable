@@ -17,12 +17,9 @@
                 npm i vue-countable
             </div>
 
-            <div class="container__info-link">
-                <a class="container__info-link__link" href="https://github.com/johndatserakis/vue-countable">View on GitHub</a>
-            </div>
-
-            <div class="container__info-link">
-                <a class="container__info-link__link" href="https://www.npmjs.com/package/vue-countable">View on NPM</a>
+            <div class="container__info-links">
+                <a class="container__info-links__link" href="https://github.com/johndatserakis/vue-countable">View on GitHub</a>
+                <a class="container__info-links__link" href="https://www.npmjs.com/package/vue-countable">View on NPM</a>
             </div>
 
             <div class="container__instruction-text">
@@ -100,6 +97,10 @@
 <style lang="scss">
     @import url('https://fonts.googleapis.com/css?family=Muli:400,700');
 
+    * {
+        box-sizing: border-box;
+    }
+
     html {
         font-size: 18px;
         width: 100%;
@@ -129,7 +130,7 @@
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -151,12 +152,16 @@
             padding: 10px 20px;
             border-radius: 6px;
             margin-bottom: 40px;
+            box-shadow: 0 4px 4px 0 rgba(#333, 0.2);
         }
 
-        &__info-link {
+        &__info-links {
             color: #E60000;
+            margin-bottom: 20px;
+            text-align: center;
 
             &__link {
+                display: block;
                 text-decoration: none;
 
                 &:hover {
@@ -193,9 +198,12 @@
             padding: 10px;
             border-radius: 6px;
             width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 4px 0 rgba(#333, 0.2);
 
             @media (min-width: 992px) {
-                width: 45%;
+                width: 48%;
+                margin-bottom: 0;
             }
 
             ul {

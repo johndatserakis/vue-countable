@@ -4,11 +4,7 @@ Vue binding for [countable.js](https://sacha.me/Countable/). Provides real-time 
 
 ### Demo
 
-[View demo](https://johndatserakis.github.io/vue-countable/)
-
-[View on npm](https://www.npmjs.com/package/vue-countable)
-
-[View on GitHub](https://github.com/johndatserakis/vue-countable)
+[View Demo](https://johndatserakis.github.io/vue-countable/) | [View on NPM](https://www.npmjs.com/package/vue-countable) | [View on GitHub](https://github.com/johndatserakis/vue-countable)
 
 ### Install
 
@@ -16,7 +12,7 @@ Vue binding for [countable.js](https://sacha.me/Countable/). Provides real-time 
 # npm
 npm i vue-countable
 
-#yarn
+# yarn
 yarn add vue-countable
 ```
 
@@ -41,15 +37,15 @@ Vue.component('vue-countable', VueCountable)
 ```html
 <!-- In your html - Make sure the id prop is unique on your page. -->
 <vue-countable
-    :text="myText"
-    :id="'myId'"
-    @change="change"
+    :text="myText" // Your text variable
+    :id="'myId'" // A unique string id
+    @change="change" // Register for the change event
 ></vue-countable>
 
 <!-- The @change function -->
 change (event) {
     console.log(event)
-    // event.words to get word count etc.
+    // event.words to get word count, etc.
 }
 ```
 
@@ -60,6 +56,7 @@ Now, anytime (and on component initialization) your `myText` variable changes, `
 | prop    | type  | description                    |
 |---------|-------|--------------------------------|
 | text | String | Text you want to track. |
+| id | String | A unique id for your tracking instance. This allows you to have multiple different counts on the same page.|
 
 ### Events
 
@@ -99,4 +96,4 @@ Go ahead and fork the project! Submit an issue if needed. Have fun!
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Packaged with a mixture of [vue-lib-template](https://github.com/biigpongsatorn/vue-lib-template) and [vue-sfc-rollup](https://github.com/team-innovation/vue-sfc-rollup).
+Packaged with a mixture of [vue-lib-template](https://github.com/biigpongsatorn/vue-lib-template) and [vue-sfc-rollup](https://github.com/team-innovation/vue-sfc-rollup). Using [webpack 4](https://webpack.js.org/).
