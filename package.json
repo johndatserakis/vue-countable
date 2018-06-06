@@ -1,6 +1,6 @@
 {
   "name": "vue-countable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue binding for countable.js. Provides realtime paragraph, word, and character counting.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
