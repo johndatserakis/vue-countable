@@ -9,8 +9,6 @@ const env = process.env.NODE_ENV;
 const minify = env === 'production';
 const sourceMap = env === 'development';
 
-console.log(path.join(__dirname, 'docs'))
-
 const config = {
   entry: path.join(__dirname, 'example', 'main.js'),
   mode: env,
