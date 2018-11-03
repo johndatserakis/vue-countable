@@ -57,13 +57,13 @@
 
         <vue-countable
             :text="firstText"
-            :id="'first-div'"
+            :elementId="'first-div'"
             @change="changeFirst"
         ></vue-countable>
 
         <vue-countable
             :text="secondText"
-            :id="'second-div'"
+            :elementId="'second-div'"
             @change="changeSecond"
         ></vue-countable>
 

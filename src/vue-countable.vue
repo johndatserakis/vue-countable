@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" class="countable-div">{{text}}</div>
+    <div :id="elementId" class="countable-div">{{text}}</div>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
             type: String,
             required: true
         },
-        id: {
+        elementId: {
             type: String,
             required: true
         },
@@ -49,7 +49,7 @@ export default {
     watch: {
         text: {
             handler: function (value) {
-                let area = document.getElementById(this.id)
+                let area = document.getElementById(this.elementId)
                 if (!area) {
                     return
                 }
@@ -69,7 +69,7 @@ export default {
             // Set our countable instance
             this.countable = countable
 
-            let area = document.getElementById(this.id)
+            let area = document.getElementById(this.elementId)
             if (!area) {
                 return
             }

@@ -18,13 +18,13 @@ yarn add vue-countable
 
 Or you can include it through the browser at the bottom of your page:
 
-`<script src="https://unpkg.com/vue-countable"></script>`
+`<script src="https://unpkg.com/vue-countable/dist/vue-countable.min.js"></script>`
 
 ### About
 
 Simple way to count characters, words, sentences, and paragraphs in your Vue apps.
 
-Pass your `text` as a prop to the provided component, along with a unique `id`, and register for the `change` event to get real-time count updates.
+Pass your `text` as a prop to the provided component, along with a unique `elementId`, and register for the `change` event to get real-time count updates.
 
 ### Usage Example
 
@@ -33,12 +33,11 @@ import VueCountable from 'vue-countable'
 Vue.component('vue-countable', VueCountable)
 ```
 
-
 ```html
-<!-- In your html - Make sure the id prop is unique on your page. -->
+<!-- In your html - Make sure the elementId prop is unique on your page. -->
 <vue-countable
     :text="myText" // Your text variable
-    :id="'myId'" // A unique string id
+    :elementId="'myId'" // A unique string id
     @change="change" // Register for the change event
 ></vue-countable>
 
@@ -56,7 +55,7 @@ Now, anytime (and on component initialization) your `myText` variable changes, `
 | prop    | type  | description                    |
 |---------|-------|--------------------------------|
 | text | String | Text you want to track. |
-| id | String | A unique id for your tracking instance. This allows you to have multiple different counts on the same page.|
+| elementId | String | A unique id for your tracking instance. This allows you to have multiple different counts on the same page.|
 | hardReturns | Boolean (Optional, defaults to false) | Require two returns to count paragraphs |
 | stripTags | Boolean (Optional, defaults to false) | Remove HTML before counting |
 | ignore | Array of Strings (Optional, defaults to empty) | Characters to be ignored. |
@@ -73,6 +72,9 @@ Now, anytime (and on component initialization) your `myText` variable changes, `
 # install dependencies
 npm install
 
+# run tests
+npm run test
+
 # serve with hot reload
 npm run watch
 
@@ -83,7 +85,6 @@ npm run build:example
 npm run build
 
 # publish to npm
-npm version patch
 npm publish
 ```
 
