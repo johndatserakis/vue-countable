@@ -132,7 +132,7 @@
         height: 100%;
         height: 100vh;
         width: 100%;
-        font-family: 'Noto Sans', sans-serif;
+        font-family: 'Muli', sans-serif;
     }
 
     #app {
