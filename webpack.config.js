@@ -104,12 +104,12 @@ if (process.env.NODE_ENV === 'production') {
     }),
     // Turing off the demo uglifying because it's getting
     // upset with the countable import
-    // new webpack.optimize.UglifyJsPlugin({
-    //   sourceMap: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

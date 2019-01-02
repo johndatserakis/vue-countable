@@ -8,28 +8,48 @@
             </svg>
         </a>
 
-        <div class="container">
-            <div class="container__program-name">
-                vue-countable
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <h3><strong>vue-countable</strong></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pt-3 pb-4">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-6">
+                    <span class="badge badge-primary mb-1">install</span>
+                    <div class="code-text">npm i vue-countable</div>
+                </div>
             </div>
 
-            <div class="container__install-text">
-                npm i vue-countable
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="list-group">
+                      <a href="https://github.com/johndatserakis/vue-countable" class="list-group-item list-group-item-action" target="_blank">View on GitHub</a>
+                      <a href="https://www.npmjs.com/package/vue-countable" class="list-group-item list-group-item-action" target="_blank">View on NPM</a>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="container__info-links">
-                <a class="container__info-links__link" href="https://github.com/johndatserakis/vue-countable">View on GitHub</a>
-                <a class="container__info-links__link" href="https://www.npmjs.com/package/vue-countable">View on NPM</a>
+        <div class="container py-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <hr>
+                </div>
             </div>
+        </div>
 
-            <div class="container__instruction-text">
-                <p>Edit the text below to watch the counts change in real time.</p>
-            </div>
-
-            <div class="test-wrapper">
-                <div class="test-wrapper__container">
-                    <input type="text" v-model="firstText" class="test-wrapper__container__input"/>
-                    <div v-if="firstCounts" class="test-wrapper__container__result">
+        <div class="container py-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="form-group">
+                        <label>Single Line</label>
+                        <input type="text" v-model="firstText" class="form-control"/>
+                    </div>
+                    <div v-if="firstCounts" class="bg-primary text-white rounded pt-2 pb-1">
                         <ul>
                             <li>Paragraphs: {{firstCounts.paragraphs}}</li>
                             <li>Sentences: {{firstCounts.sentences}}</li>
@@ -40,17 +60,21 @@
                     </div>
                 </div>
 
-                <div class="test-wrapper__container">
-                    <textarea v-model="secondText" class="test-wrapper__container__textarea"></textarea>
-                    <div v-if="secondCounts" class="test-wrapper__container__result">
-                        <ul>
-                            <li>Paragraphs: {{secondCounts.paragraphs}}</li>
-                            <li>Sentences: {{secondCounts.sentences}}</li>
-                            <li>Words: {{secondCounts.words}}</li>
-                            <li>Characters: {{secondCounts.characters}}</li>
-                            <li>All: {{secondCounts.all}}</li>
-                        </ul>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Longer Text</label>
+                        <textarea type="text" v-model="secondText" class="form-control"></textarea>
                     </div>
+                   <div v-if="secondCounts" class="bg-primary text-white rounded pt-2 pb-1">
+                       <ul>
+                           <li>Paragraphs: {{secondCounts.paragraphs}}</li>
+                           <li>Sentences: {{secondCounts.sentences}}</li>
+                           <li>Words: {{secondCounts.words}}</li>
+                           <li>Characters: {{secondCounts.characters}}</li>
+                           <li>All: {{secondCounts.all}}</li>
+                       </ul>
+                   </div>
                 </div>
             </div>
         </div>
@@ -97,16 +121,10 @@
 <style lang="scss">
     @import url('https://fonts.googleapis.com/css?family=Muli:400,700');
 
-    * {
-        box-sizing: border-box;
-    }
-
     html {
         width: 100%;
         font-size: 18px;
-        font-family: 'Muli', sans-serif;
         color: #333;
-        background-color: #f9f9f9;
     }
 
     body {
@@ -114,6 +132,7 @@
         height: 100%;
         height: 100vh;
         width: 100%;
+        font-family: 'Noto Sans', sans-serif;
     }
 
     #app {
@@ -123,132 +142,40 @@
         line-height: 1.5;
     }
 
-    .container {
-        width: 100%;
-        max-width: 1140px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .code-text {
+        background: #eee;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-        &__program-name {
-            text-align: center;
-            font-size: 1.2rem;
-            margin: 40px 0;
-            font-weight: bold;
-
-            @media (min-width: 992px) {
-                font-size: 2.0rem;
-            }
-        }
-
-        &__install-text {
-            background: #eee;
-            padding: 10px 20px;
-            border-radius: 6px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 4px 0 rgba(#333, 0.2);
-        }
-
-        &__info-links {
-            color: #E60000;
-            margin-bottom: 20px;
-            text-align: center;
-
-            &__link {
-                display: block;
-                text-decoration: none;
-
-                &:hover {
-                    color: #2f4265;
-                }
-            }
-        }
-
-        &__instruction-text {
-            margin-bottom: 20px;
+    @media (min-width: 992px) {
+        .code-text {
+            margin-bottom: 0;
         }
     }
 
-    .test-wrapper {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
+    .btn {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
 
-        @media (min-width: 992px) {
-            flex-direction: row;
-        }
-
-        &__container {
-            height: 100%;
-            background: #FF5722;
-            background: linear-gradient(150deg, #FF5722, #dc3d31);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 175px;
-            padding: 10px;
-            border-radius: 6px;
-            width: 100%;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 4px 0 rgba(#333, 0.2);
-
-            @media (min-width: 992px) {
-                width: 48%;
-                margin-bottom: 0;
-            }
-
-            ul {
-                list-style-type: none;
-                padding-left: 0;
-            }
-
-            &__input {
-                margin-bottom: auto;
-                display: block;
-                padding: .375rem .75rem;
-                font-size: 1rem;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: .25rem;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                color: #333;
-            }
-
-            &__textarea {
-                min-height: 125px;
-                margin-bottom: auto;
-                display: block;
-                padding: .375rem .75rem;
-                font-size: 1rem;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: .25rem;
-                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                color: #333;
-            }
-        }
+    textarea {
+        min-height: 175px;
     }
 
     .github-corner:hover .octo-arm {
         animation:octocat-wave 560ms ease-in-out
     }
+
     @keyframes octocat-wave {
         0%,100% {transform:rotate(0)}
         20%,60% {transform:rotate(-25deg)}
         40%,80% {transform:rotate(10deg)}
     }
+
     @media (max-width:500px) {
         .github-corner:hover .octo-arm {animation:none}
         .github-corner .octo-arm {animation:octocat-wave 560ms ease-in-out}

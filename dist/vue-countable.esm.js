@@ -46,43 +46,28 @@ var script = {
     watch: {
         text: {
             handler: function (value) {
-                var this$1 = this;
-
-                var area = document.getElementById(this.elementId);
-                if (!area) {
-                    return
-                }
-
-                this.$nextTick(function () {
-                    this$1.countable.count(area, function (counter) {
-                        this$1.$emit('change', counter);
-                    }, this$1.options);
-                });
+                // Everytime this.text changes we'll update our live count
+                this.init();
             }
         }
     },
     methods: {
-        // The init function is important because we want to provide counts not
-        // only during changes, but also on initialization.
         init: function init () {
             var this$1 = this;
 
             // Set our countable instance
             this.countable = countable;
 
-            var area = document.getElementById(this.elementId);
-            if (!area) {
-                return
-            }
-
             this.$nextTick(function () {
-                this$1.countable.count(area, function (counter) {
+                this$1.countable.count(this$1.text, function (counter) {
                     this$1.$emit('change', counter);
                 }, this$1.options);
             });
         }
     },
     mounted: function mounted () {
+        // The init function is important because we want to provide counts not
+        // only during changes, but also on initialization.
         this.init();
     }
 }
@@ -95,11 +80,7 @@ var __vue_render__ = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c(
-    "div",
-    { staticClass: "countable-div", attrs: { id: _vm.elementId } },
-    [_vm._v(_vm._s(_vm.text))]
-  )
+  return _c("div")
 };
 var __vue_staticRenderFns__ = [];
 __vue_render__._withStripped = true;
@@ -107,11 +88,11 @@ __vue_render__._withStripped = true;
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-7a4afb70_0", { source: "\n.countable-div[data-v-7a4afb70] {\n  display: none;\n}\n\n/*# sourceMappingURL=vue-countable.vue.map */", map: {"version":3,"sources":["/Users/johndatserakis/Documents/Code/vue-countable/src/vue-countable.vue","vue-countable.vue"],"names":[],"mappings":";AA0FA;EACA,cAAA;CACA;;ACzFA,6CAA6C","file":"vue-countable.vue","sourcesContent":[null,".countable-div {\n  display: none; }\n\n/*# sourceMappingURL=vue-countable.vue.map */"]}, media: undefined });
+    inject("data-v-12d8198d_0", { source: "\n/*# sourceMappingURL=vue-countable.vue.map */", map: {"version":3,"sources":["vue-countable.vue"],"names":[],"mappings":";AACA,6CAA6C","file":"vue-countable.vue"}, media: undefined });
 
   };
   /* scoped */
-  var __vue_scope_id__ = "data-v-7a4afb70";
+  var __vue_scope_id__ = "data-v-12d8198d";
   /* module identifier */
   var __vue_module_identifier__ = undefined;
   /* functional template */

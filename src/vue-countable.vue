@@ -1,5 +1,4 @@
 <template>
-    <div :id="elementId" class="countable-div">{{text}}</div>
 </template>
 
 <script>
@@ -49,46 +48,30 @@ export default {
     watch: {
         text: {
             handler: function (value) {
-                let area = document.getElementById(this.elementId)
-                if (!area) {
-                    return
-                }
-
-                this.$nextTick(() => {
-                    this.countable.count(area, counter => {
-                        this.$emit('change', counter)
-                    }, this.options)
-                })
+                // Everytime this.text changes we'll update our live count
+                this.init()
             }
         }
     },
     methods: {
-        // The init function is important because we want to provide counts not
-        // only during changes, but also on initialization.
         init () {
             // Set our countable instance
             this.countable = countable
 
-            let area = document.getElementById(this.elementId)
-            if (!area) {
-                return
-            }
-
             this.$nextTick(() => {
-                this.countable.count(area, counter => {
+                this.countable.count(this.text, counter => {
                     this.$emit('change', counter)
                 }, this.options)
             })
         }
     },
     mounted () {
+        // The init function is important because we want to provide counts not
+        // only during changes, but also on initialization.
         this.init()
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    .countable-div {
-        display: none;
-    }
 </style>
