@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 
 module.exports = {
   entry: './example/main.js',
@@ -102,12 +103,14 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    // Turing off the demo uglifying because it's getting
-    // upset with the countable import
-    new webpack.optimize.UglifyJsPlugin({
+    // This is done a little different then the rest of my
+    // components due to something in countable.js
+    // See https://github.com/webpack/webpack/issues/2972
+    new UglifyJsPlugin({
+      test: /\.js($|\?)/i,
       sourceMap: true,
-      compress: {
-        warnings: false
+      uglifyOptions: {
+        compress: true
       }
     }),
     new webpack.LoaderOptionsPlugin({
