@@ -4,7 +4,7 @@ Vue binding for [countable.js](https://sacha.me/Countable/). Provides real-time 
 
 <p align="left">
   <a href="https://www.npmjs.com/package/vue-countable"><img src="https://img.shields.io/npm/v/vue-countable.svg" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/vue-countable"><img src="https://img.shields.io/npm/dt/vue-countable.svg" alt="NPM Downloads"></a>
+  <a href="https://www.npmjs.com/package/vue-countable"><img src="https://img.shields.io/npm/dm/vue-countable.svg" alt="NPM Downloads"></a>
   <a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fjohndatserakis%2Fvue-countable&text=Check%20out%20vue-countable%20on%20GitHub&via=johndatserakis">
   <img src="https://img.shields.io/twitter/url/https/github.com/johndatserakis/vue-countable.svg?style=social" alt="Tweet"></a>
