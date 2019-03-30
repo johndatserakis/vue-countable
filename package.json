@@ -1,6 +1,6 @@
 {
   "name": "vue-countable",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Vue binding for countable.js. Provides real-time paragraph, sentence, word, and character counting.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
@@ -29,11 +29,11 @@
   },
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "watch:vue-cli": "vue serve ./src/vue-countable.vue",
-    "build": "rm -rf ./dist npm run build:unpkg & npm run build:es & npm run build:umd & npm run build:unpkg",
+    "build": "npm run test && npm run build:example && npm run build:library",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-countable.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-countable.esm.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-countable.min.js",
+    "build:library": "rm -rf ./dist npm run build:unpkg & npm run build:es & npm run build:umd & npm run build:unpkg",
     "build:example": "rm -rf ./docs && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "jest"
   },
